@@ -9,6 +9,9 @@ type Project = {
   details: string;
   link: string;
   image: string;
+  hoverImage?: string;
+  mediaFit?: "cover" | "contain";
+  mediaBg?: string;
   imageAlt: string;
 };
 
@@ -152,13 +155,46 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
             className="mb-3 origin-center rounded-sm border border-[var(--line)]/20 bg-[var(--background)]/75 p-3 [contain:layout_paint_style] will-change-transform [transform:translateZ(0)]"
           >
             <div className="flex items-start gap-4">
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                width={62}
-                height={62}
-                className="mt-1 h-[62px] w-[62px] shrink-0 rounded-sm border border-[var(--line)]/35 bg-white/40 p-1"
-              />
+              <div
+                className="group/media relative mt-1 h-[62px] w-[62px] shrink-0 overflow-hidden rounded-sm"
+                style={{ backgroundColor: project.mediaBg ?? "transparent" }}
+              >
+                {/\.((mp4)|(webm)|(ogg))$/i.test(project.image) ? (
+                  <video
+                    src={project.image}
+                    aria-label={project.imageAlt}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                    className="h-full w-full"
+                    style={{ objectFit: project.mediaFit ?? "cover" }}
+                  />
+                ) : (
+                  <>
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width={62}
+                      height={62}
+                      className={`h-full w-full transition-opacity duration-200 ${
+                        project.hoverImage ? "opacity-100 group-hover/media:opacity-0" : ""
+                      }`}
+                      style={{ objectFit: project.mediaFit ?? "cover" }}
+                    />
+                    {project.hoverImage ? (
+                      <Image
+                        src={project.hoverImage}
+                        alt={project.imageAlt}
+                        width={62}
+                        height={62}
+                        className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-200 group-hover/media:opacity-100"
+                        style={{ objectFit: project.mediaFit ?? "cover" }}
+                      />
+                    ) : null}
+                  </>
+                )}
+              </div>
               <div className="max-w-xl">
                 <h3 className="text-xl font-bold">{project.name}</h3>
                 <p className="mt-1 font-[Arial] text-xs tracking-[0.04em] text-[var(--muted)]">

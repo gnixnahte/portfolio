@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProjectsCarousel from "./components/projects-carousel";
+import TopNav from "./components/top-nav";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -41,7 +42,7 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/next.svg",
+      image: "/projects/scrible.png",
       imageAlt: "Scrible project preview",
     },
     {
@@ -50,7 +51,10 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/globe.svg",
+      image: "/projects/melodica1.png",
+      hoverImage: "/projects/melodica2.png",
+      mediaFit: "contain",
+      mediaBg: "#d9d9d9",
       imageAlt: "Melodica project preview",
     },
     {
@@ -59,7 +63,7 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/window.svg",
+      image: "/projects/axiom.svg",
       imageAlt: "AXIOM project preview",
     },
     {
@@ -68,7 +72,8 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/file.svg",
+      image: "/projects/robot1.jpg",
+      hoverImage: "/projects/robot2.jpg",
       imageAlt: "SumoBot and Firefighter project preview",
     },
     {
@@ -77,7 +82,8 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/next.svg",
+      image: "/projects/vex1.jpeg",
+      hoverImage: "/projects/vex2.png",
       imageAlt: "VEX Robot project preview",
     },
     {
@@ -86,7 +92,7 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/globe.svg",
+      image: "/projects/ispy.webp",
       imageAlt: "iSpy project preview",
     },
     {
@@ -95,7 +101,9 @@ export default function Home() {
       details:
         "short description of what you built, the problem it solves, and your impact.",
       link: "#",
-      image: "/window.svg",
+      image: "/projects/newden.webp",
+      mediaFit: "contain",
+      mediaBg: "#ffffff",
       imageAlt: "NewDen project preview",
     },
   ];
@@ -103,21 +111,12 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden bg-[var(--background)] text-[var(--foreground)]">
       <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.2)_1px,transparent_0)] [background-size:22px_22px]" />
-      <nav className="fixed left-1/2 top-5 z-30 -translate-x-1/2">
-        <div className="flex items-center gap-6 text-sm">
-          <a href="#projects" className="transition hover:text-[var(--muted)]">
-            projects
-          </a>
-          <a href="#experience" className="transition hover:text-[var(--muted)]">
-            experience
-          </a>
-          <a href="#experience" className="transition hover:text-[var(--muted)]">
-            resumé
-          </a>
-        </div>
-      </nav>
+      <TopNav />
 
-      <section className="relative z-10 flex min-h-screen items-center justify-center px-6 py-16">
+      <section
+        id="me"
+        className="relative z-10 flex min-h-screen scroll-mt-20 items-center justify-center px-6 py-16"
+      >
         <div className="w-full max-w-3xl">
 
           <h1 className="text-4xl font-black lowercase leading-[0.95] tracking-[-0.04em] sm:text-6xl">
@@ -132,7 +131,10 @@ export default function Home() {
             i like working with end-to-end software systems and building, learning and iterating fast.
           </p>
 
-          <div className="mt-10 -ml-2 flex flex-wrap items-center gap-2">
+          <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
+            reach out!
+          </p>
+          <div className="mt-2 -ml-2 flex flex-wrap items-center gap-2">
             <a
               href="mailto:ethanxing2007@gmail.com"
               aria-label="Email Ethan"
@@ -180,7 +182,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="relative z-10 px-6 pb-24 pt-2">
+      <section id="projects" className="relative z-10 scroll-mt-20 px-6 pb-24 pt-2">
         <div className="mx-auto w-full max-w-3xl">
           <div className="mb-10 max-w-2xl">
             <h2 className="text-3xl font-black lowercase tracking-[-0.03em] sm:text-5xl">
@@ -192,7 +194,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="relative z-10 px-6 py-20">
+      <section id="experience" className="relative z-10 scroll-mt-20 px-6 py-20">
         <div className="mx-auto w-full max-w-3xl">
           <div className="mb-12 max-w-2xl">
             <h2 className="mt-3 text-3xl font-black lowercase tracking-[-0.03em] sm:text-5xl">
@@ -200,12 +202,15 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="relative pb-6">
+          <div id="robotics" className="relative scroll-mt-20 pb-6">
             <div className="pointer-events-none absolute left-0 top-6 h-px w-[220vw] bg-[var(--line)]/35" />
             <ol className="relative flex gap-14 pr-8">
               {experienceTimeline.map((item) => (
-                <li key={`${item.period}-${item.title}`} className="relative w-[18rem] pt-12">
-                  <span className="absolute left-0 top-[18px] h-3 w-3 rounded-full bg-[var(--line)]" />
+                <li
+                  key={`${item.period}-${item.title}`}
+                  className="group relative w-[18rem] pt-12"
+                >
+                  <span className="absolute left-0 top-[18px] h-3 w-3 rounded-full bg-[var(--line)] transition duration-200 group-hover:bg-white group-hover:shadow-[0_0_10px_rgba(255,255,255,0.95)]" />
                   <Image
                     src={item.logo}
                     alt={item.logoAlt}
