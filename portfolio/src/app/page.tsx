@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProjectsCarousel from "./components/projects-carousel";
+import type { Project } from "./components/projects-carousel";
 import TopNav from "./components/top-nav";
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
       logo: "/logos/robohub_logo.png",
       logoAlt: "RoboHub x UWaterloo logo",
       details:
-        "building control software for a 6-dof robotic arm platform with millimeter accuracy",
+        "building control software for a 6-dof KINOVA robotic arm with millimeter accuracy for 3d bioprinting purposes",
     },
     {
       period: "Sep 2023 - Jun 2024",
@@ -35,12 +36,12 @@ export default function Home() {
     },
   ];
 
-  const projects = [
+  const projects: Project[] = [
     {
       name: "Scrible",
       stack: "next.js / typescript / react / tailwind / python / tensorflow / keras / gemini api",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "ml-powered, full-stack accessibility tool for people with parkinson's disease and hand tremors, allowing users to transcribe ineligible handwriting into eligible text",
       link: "https://github.com/forkiron/scrible",
       image: "/projects/scrible.png",
       mediaFit: "cover",
@@ -51,7 +52,7 @@ export default function Home() {
       name: "Melodica",
       stack: "next.js / typescript / react / google cloud platform / tone.js / supabase",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "beginner-friendly, browser-based DAW music maker with real-time audio scheduling and an interactive piano roll-based editor",
       link: "https://github.com/gnixnahte/melodica",
       image: "/projects/melodica1.png",
       hoverImage: "/projects/melodica2.png",
@@ -63,17 +64,21 @@ export default function Home() {
       name: "AXIOM",
       stack: "next.js / typescript / react / node.js / supabase / backboard.io",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "standardized grading system for canadian high schools, reducing the effects of grade inflation with data taken from 2,000+ schools in the Fraser Institute",
       link: "https://github.com/forkiron/axiom",
       image: "/projects/axiom.png",
       imageAlt: "AXIOM project preview",
     },
     {
       name: "SumoBot and Firefighter",
-      stack: "onshape CAD / PIC microcontrollers / custom pcb design / soldering / great cow BASIC",
+      stack: "CAD / PIC microcontrollers / custom pcb design / soldering / great cow BASIC",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "two robots, designed with CAD, powered by custom designed PCBs, both with autonomous navigation capabilities aided by ultrasonic and infrared sensors",
       link: "#",
+      extraLinks: [
+        { label: "view sumobot", href: "#" },
+        { label: "view firefighter", href: "#" },
+      ],
       image: "/projects/robot1.jpg",
       hoverImage: "/projects/robot2.jpg",
       imageAlt: "SumoBot and Firefighter project preview",
@@ -82,7 +87,7 @@ export default function Home() {
       name: "VEX  Robot",
       stack: "c++ / vex iq",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "autonomous robotic collector built with VEX IQ and C++",
       link: "#",
       image: "/projects/vex1.jpeg",
       hoverImage: "/projects/vex2.png",
@@ -92,7 +97,7 @@ export default function Home() {
       name: "iSpy",
       stack: "javascript / python / pytorch / flask / openCV / sightengine API",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "browser extension built to identify ai-generated media, helping artists and consumers alike identify ai-generated media",
       link: "https://github.com/forkiron/ispy",
       image: "/projects/ispy.webp",
       imageAlt: "iSpy project preview",
@@ -101,7 +106,7 @@ export default function Home() {
       name: "NewDen",
       stack: "javascript / python / openCV / spaCy / fuzzywuzzy",
       details:
-        "short description of what you built, the problem it solves, and your impact.",
+        "NLP-based scam-detection tool for people looking for housing in Canada, found 3,000+ scam listings across Ontario alone",
       link: "https://github.com/forkiron/newden",
       image: "/projects/newden.webp",
       mediaFit: "contain",
@@ -130,7 +135,7 @@ export default function Home() {
           </p>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            i work with end-to-end software systems and love building, learning and iterating fast.
+            i work with end-to-end software + hardware systems and love building, learning and iterating fast.
           </p>
 
           <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
@@ -227,7 +232,7 @@ export default function Home() {
                   <p className="mt-2 font-[Arial] text-xs tracking-[0.02em] text-[var(--muted)]">
                     {item.organization}
                   </p>
-                  <p className="mt-4 text-sm lowercase leading-relaxed text-[var(--muted)]">
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
                     {item.details}
                   </p>
                 </li>

@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-type Project = {
+export type Project = {
   name: string;
   stack: string;
   details: string;
   link: string;
+  extraLinks?: Array<{ label: string; href: string }>;
   image: string;
   hoverImage?: string;
   mediaFit?: "cover" | "contain";
@@ -169,15 +170,29 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                 <p className="mt-1 font-[Arial] text-xs tracking-[0.04em] text-[var(--muted)]">
                   {project.stack}
                 </p>
-                <p className="mt-3 text-sm lowercase leading-relaxed text-[var(--muted)] sm:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
                   {project.details}
                 </p>
-                <a
-                  href={project.link}
-                  className="mt-3 inline-block text-sm lowercase underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
-                >
-                  view project
-                </a>
+                {project.extraLinks && project.extraLinks.length > 0 ? (
+                  <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
+                    {project.extraLinks.map((item) => (
+                      <a
+                        key={`${project.name}-${item.label}`}
+                        href={item.href}
+                        className="inline-block underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <a
+                    href={project.link}
+                    className="mt-3 inline-block text-sm lowercase underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
+                  >
+                    view project
+                  </a>
+                )}
               </div>
             </div>
           </li>
