@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Ethan Xing Portfolio",
   description: "Minimal single-page portfolio intro for Ethan Xing.",
+  icons: {
+    icon: "/8.jpg",
+    shortcut: "/8.jpg",
+    apple: "/8.jpg",
+  },
 };
 
 export default function RootLayout({

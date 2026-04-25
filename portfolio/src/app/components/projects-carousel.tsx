@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type Project = {
   name: string;
@@ -24,11 +24,6 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const itemRefs = useRef<HTMLElement[]>([]);
   const reducedMotionRef = useRef(false);
-
-  const loopedProjects = useMemo(() => {
-    const copies = 5;
-    return Array.from({ length: copies }, () => projects).flat();
-  }, [projects]);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
@@ -73,42 +68,8 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
       });
     };
 
-    let isRecentering = false;
-    let recenterCooldownUntil = 0;
-    const loopIfNeeded = () => {
-      const copies = 5;
-      const centerCopyIndex = 2;
-      const segmentHeight = scroller.scrollHeight / copies;
-      if (segmentHeight <= 0) {
-        return;
-      }
-
-      // Avoid fighting native momentum scrolling immediately after a recenter.
-      if (performance.now() < recenterCooldownUntil) {
-        return;
-      }
-
-      // Keep recentering infrequent and only when far from the middle segment.
-      const lowerBound = segmentHeight * 0.85;
-      const upperBound = segmentHeight * 3.15;
-      const inSafeBand =
-        scroller.scrollTop >= lowerBound && scroller.scrollTop <= upperBound;
-
-      if (!inSafeBand && !isRecentering) {
-        const normalized =
-          ((scroller.scrollTop - centerCopyIndex * segmentHeight) % segmentHeight +
-            segmentHeight) %
-          segmentHeight;
-        isRecentering = true;
-        scroller.scrollTop = centerCopyIndex * segmentHeight + normalized;
-        recenterCooldownUntil = performance.now() + 120;
-        isRecentering = false;
-      }
-    };
-
-    // Start in the middle copy so users can scroll in either direction continuously.
     requestAnimationFrame(() => {
-      scroller.scrollTop = (scroller.scrollHeight / 5) * 2;
+      scroller.scrollTop = 0;
       applyDepth();
     });
 
@@ -120,9 +81,6 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
       }
       ticking = true;
       raf = requestAnimationFrame(() => {
-        if (!isRecentering) {
-          loopIfNeeded();
-        }
         applyDepth();
         ticking = false;
       });
@@ -147,9 +105,9 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
 
       <ul
         ref={scrollerRef}
-        className="h-[38rem] overflow-y-auto px-2 py-6 [perspective:1000px] [scrollbar-width:none] [touch-action:pan-y] [overscroll-behavior:contain] [&::-webkit-scrollbar]:hidden"
+        className="h-[38rem] overflow-y-auto px-2 pt-20 pb-24 [perspective:1000px] [scrollbar-width:none] [touch-action:pan-y] [overscroll-behavior:contain] [&::-webkit-scrollbar]:hidden"
       >
-        {loopedProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <li
             key={`${project.name}-${project.stack}-${index}`}
             data-project-item

@@ -239,71 +239,72 @@ export default function Home() {
 
       <footer className="relative z-10 px-6 pb-12 pt-4">
         <div className="mx-auto w-full max-w-3xl border-t border-[var(--line)]/25 pt-6">
-          <div className="mb-6 flex items-center gap-4">
-            <div className="h-20 w-20 overflow-hidden rounded-sm bg-[var(--background-alt)]">
-              <Image
-                src="/logos/org-placeholder.svg"
-                alt="Portrait of Ethan Xing"
-                width={80}
-                height={80}
-                className="h-full w-full object-cover"
-              />
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-sm text-[var(--muted)]">
+                built by ethan xing <span className="mx-2">/</span> {currentYear}
+              </p>
+              <p className="mt-2 text-xs text-[var(--muted)]">
+                based in toronto + waterloo <span className="mx-2">/</span> builders reach out!
+              </p>
+              <div className="mt-3 -ml-1 flex flex-wrap items-center gap-2">
+                <a
+                  href="mailto:ethanxing2007@gmail.com"
+                  aria-label="Email Ethan"
+                  className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
+                >
+                  <Image
+                    src="/logos/email-icon.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                </a>
+                <a
+                  href="https://github.com/gnixnahte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
+                  className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
+                >
+                  <Image
+                    src="/logos/github-icon.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                </a>
+                <a
+                  href="https://linkedin.com/in/ethanxinguw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                  className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
+                >
+                  <Image
+                    src="/logos/linkedin-icon.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
             </div>
-            <p className="text-xs text-[var(--muted)]">
-              add your photo by replacing <code>/public/me.jpg</code>
-            </p>
-          </div>
 
-          <p className="text-sm text-[var(--muted)]">
-            built by ethan xing <span className="mx-2">/</span> {currentYear}
-          </p>
-          <p className="mt-2 text-xs text-[var(--muted)]">
-            based in toronto + waterloo <span className="mx-2">/</span> builders reach out!
-          </p>
-          <div className="mt-3 -ml-1 flex flex-wrap items-center gap-2">
-            <a
-              href="mailto:ethanxing2007@gmail.com"
-              aria-label="Email Ethan"
-              className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-            >
-              <Image
-                src="/logos/email-icon.svg"
-                alt=""
-                width={24}
-                height={24}
-                aria-hidden="true"
-              />
-            </a>
-            <a
-              href="https://github.com/gnixnahte"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-            >
-              <Image
-                src="/logos/github-icon.svg"
-                alt=""
-                width={24}
-                height={24}
-                aria-hidden="true"
-              />
-            </a>
-            <a
-              href="https://linkedin.com/in/ethanxinguw"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="flex h-10 w-10 items-center justify-center rounded-sm transition duration-200 hover:opacity-60 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-            >
-              <Image
-                src="/logos/linkedin-icon.svg"
-                alt=""
-                width={24}
-                height={24}
-                aria-hidden="true"
-              />
-            </a>
+            <div className="flex flex-col items-start gap-2 sm:items-end">
+              <div className="h-20 w-20 overflow-hidden rounded-sm bg-[var(--background-alt)]">
+                <Image
+                  src="/8.jpg"
+                  alt="Portrait of Ethan Xing"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </footer>
