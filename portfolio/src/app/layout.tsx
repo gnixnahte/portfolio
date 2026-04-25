@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ethan Xing Portfolio",
+  title: "Ethan Xing",
   description: "Minimal single-page portfolio intro for Ethan Xing.",
   icons: {
-    icon: "/8.jpg",
-    shortcut: "/8.jpg",
-    apple: "/8.jpg",
+    icon: "/icon.jpg",
+    shortcut: "/icon.jpg",
+    apple: "/icon.jpg",
   },
 };
 
