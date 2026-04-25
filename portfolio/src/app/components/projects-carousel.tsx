@@ -11,6 +11,7 @@ type Project = {
   image: string;
   hoverImage?: string;
   mediaFit?: "cover" | "contain";
+  mediaPosition?: string;
   mediaBg?: string;
   imageAlt: string;
 };
@@ -156,7 +157,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
           >
             <div className="flex items-start gap-4">
               <div
-                className="group/media relative mt-1 h-[62px] w-[62px] shrink-0 overflow-hidden rounded-sm"
+                className="group/media relative mt-1 h-[94px] w-[94px] shrink-0 overflow-hidden rounded-sm"
                 style={{ backgroundColor: project.mediaBg ?? "transparent" }}
               >
                 {/\.((mp4)|(webm)|(ogg))$/i.test(project.image) ? (
@@ -175,21 +176,31 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     <Image
                       src={project.image}
                       alt={project.imageAlt}
-                      width={62}
-                      height={62}
+                      width={94}
+                      height={94}
+                      quality={100}
+                      sizes="94px"
                       className={`h-full w-full transition-opacity duration-200 ${
                         project.hoverImage ? "opacity-100 group-hover/media:opacity-0" : ""
                       }`}
-                      style={{ objectFit: project.mediaFit ?? "cover" }}
+                      style={{
+                        objectFit: project.mediaFit ?? "cover",
+                        objectPosition: project.mediaPosition ?? "center",
+                      }}
                     />
                     {project.hoverImage ? (
                       <Image
                         src={project.hoverImage}
                         alt={project.imageAlt}
-                        width={62}
-                        height={62}
+                        width={94}
+                        height={94}
+                        quality={100}
+                        sizes="94px"
                         className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-200 group-hover/media:opacity-100"
-                        style={{ objectFit: project.mediaFit ?? "cover" }}
+                        style={{
+                          objectFit: project.mediaFit ?? "cover",
+                          objectPosition: project.mediaPosition ?? "center",
+                        }}
                       />
                     ) : null}
                   </>

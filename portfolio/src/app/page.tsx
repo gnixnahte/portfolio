@@ -9,7 +9,7 @@ export default function Home() {
     {
       period: "Sep 2025 -",
       title: "robotics software researcher",
-      organization: "@robohub x uwaterloo",
+      organization: "@ robohub x uwaterloo",
       logo: "/logos/robohub_logo.png",
       logoAlt: "RoboHub x UWaterloo logo",
       details:
@@ -41,8 +41,10 @@ export default function Home() {
       stack: "next.js / typescript / react / tailwind / python / tensorflow / keras / gemini api",
       details:
         "short description of what you built, the problem it solves, and your impact.",
-      link: "#",
+      link: "https://github.com/forkiron/scrible",
       image: "/projects/scrible.png",
+      mediaFit: "cover",
+      mediaPosition: "top center",
       imageAlt: "Scrible project preview",
     },
     {
@@ -50,11 +52,11 @@ export default function Home() {
       stack: "next.js / typescript / react / google cloud platform / tone.js / supabase",
       details:
         "short description of what you built, the problem it solves, and your impact.",
-      link: "#",
+      link: "https://github.com/gnixnahte/melodica",
       image: "/projects/melodica1.png",
       hoverImage: "/projects/melodica2.png",
       mediaFit: "contain",
-      mediaBg: "#d9d9d9",
+      mediaBg: "#2f2f2f",
       imageAlt: "Melodica project preview",
     },
     {
@@ -62,8 +64,8 @@ export default function Home() {
       stack: "next.js / typescript / react / node.js / supabase / backboard.io",
       details:
         "short description of what you built, the problem it solves, and your impact.",
-      link: "#",
-      image: "/projects/axiom.svg",
+      link: "https://github.com/forkiron/axiom",
+      image: "/projects/axiom.png",
       imageAlt: "AXIOM project preview",
     },
     {
@@ -91,7 +93,7 @@ export default function Home() {
       stack: "javascript / python / pytorch / flask / openCV / sightengine API",
       details:
         "short description of what you built, the problem it solves, and your impact.",
-      link: "#",
+      link: "https://github.com/forkiron/ispy",
       image: "/projects/ispy.webp",
       imageAlt: "iSpy project preview",
     },
@@ -100,7 +102,7 @@ export default function Home() {
       stack: "javascript / python / openCV / spaCy / fuzzywuzzy",
       details:
         "short description of what you built, the problem it solves, and your impact.",
-      link: "#",
+      link: "https://github.com/forkiron/newden",
       image: "/projects/newden.webp",
       mediaFit: "contain",
       mediaBg: "#ffffff",
@@ -128,7 +130,7 @@ export default function Home() {
           </p>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            i like working with end-to-end software systems and building, learning and iterating fast.
+            i work with end-to-end software systems and love building, learning and iterating fast.
           </p>
 
           <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
@@ -237,6 +239,21 @@ export default function Home() {
 
       <footer className="relative z-10 px-6 pb-12 pt-4">
         <div className="mx-auto w-full max-w-3xl border-t border-[var(--line)]/25 pt-6">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="h-20 w-20 overflow-hidden rounded-sm bg-[var(--background-alt)]">
+              <Image
+                src="/logos/org-placeholder.svg"
+                alt="Portrait of Ethan Xing"
+                width={80}
+                height={80}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <p className="text-xs text-[var(--muted)]">
+              add your photo by replacing <code>/public/me.jpg</code>
+            </p>
+          </div>
+
           <p className="text-sm text-[var(--muted)]">
             built by ethan xing <span className="mx-2">/</span> {currentYear}
           </p>
