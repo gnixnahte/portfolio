@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ethan Xing",
-  description: "Minimal single-page portfolio intro for Ethan Xing.",
+  description: "ethan xing's personal website",
   icons: {
     icon: "/icon.jpg",
     shortcut: "/icon.jpg",
