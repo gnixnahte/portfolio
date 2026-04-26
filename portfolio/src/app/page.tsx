@@ -43,7 +43,9 @@ export default function Home() {
       details:
         "ml-powered, full-stack accessibility tool for people with parkinson's disease and hand tremors, allowing users to transcribe ineligible handwriting into eligible text",
       link: "https://github.com/forkiron/scrible",
-      image: "/projects/scrible.png",
+      image: "/projects/scrible1.png",
+      hoverImage: "/projects/scrible2.png",
+      popupImage: "/projects/scrible.mp4",
       mediaFit: "cover",
       mediaPosition: "top center",
       imageAlt: "Scrible project preview",
@@ -55,7 +57,8 @@ export default function Home() {
         "beginner-friendly, browser-based DAW music maker with real-time audio scheduling and an interactive piano roll-based editor",
       link: "https://github.com/gnixnahte/melodica",
       image: "/projects/melodica1.png",
-      hoverImage: "/projects/melodica2.png",
+      hoverImage: "/projects/melodica2-new.png",
+      popupImage: "/projects/melodica.mp4",
       mediaFit: "contain",
       mediaBg: "#2f2f2f",
       imageAlt: "Melodica project preview",
@@ -66,21 +69,23 @@ export default function Home() {
       details:
         "standardized grading system for canadian high schools, reducing the effects of grade inflation with data taken from 2,000+ schools in the Fraser Institute",
       link: "https://github.com/forkiron/axiom",
-      image: "/projects/axiom.png",
+      image: "/projects/axiom1.png",
+      hoverImage: "/projects/axiom2.png",
+      popupImage: "/projects/axiom3.png",
+      mediaPosition: "center 56%",
       imageAlt: "AXIOM project preview",
     },
     {
-      name: "SumoBot and Firefighter",
+      name: "Firefighting Robot",
       stack: "CAD / PIC microcontrollers / custom pcb design / soldering / great cow BASIC",
       details:
-        "two robots, designed with CAD, powered by custom designed PCBs, both with autonomous navigation capabilities aided by ultrasonic and infrared sensors",
+        "custom built robot, designed with CAD, powered by PCBs i designed, with autonomous navigation capabilities aided by ultrasonic and infrared sensors",
       link: "#",
-      extraLinks: [
-        { label: "view sumobot", href: "#" },
-        { label: "view firefighter", href: "#" },
-      ],
       image: "/projects/robot1.jpg",
       hoverImage: "/projects/robot2.jpg",
+      popupImage: "/projects/robot2.jpg",
+      popupDetails:
+        "custom built autonomous firefighting robot using CAD, custom PCB design, and sensor fusion from ultrasonic and infrared sensors. add more project context here: architecture, design tradeoffs, build timeline, and outcomes.",
       imageAlt: "SumoBot and Firefighter project preview",
     },
     {
@@ -111,6 +116,7 @@ export default function Home() {
       image: "/projects/newden.webp",
       mediaFit: "contain",
       mediaBg: "#ffffff",
+      popupMediaBg: "#ffffff",
       imageAlt: "NewDen project preview",
     },
   ];

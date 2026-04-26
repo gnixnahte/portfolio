@@ -1,19 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 export type Project = {
   name: string;
   stack: string;
   details: string;
   link: string;
-  extraLinks?: Array<{ label: string; href: string }>;
   image: string;
   hoverImage?: string;
+  popupImage?: string;
+  popupDetails?: string;
   mediaFit?: "cover" | "contain";
   mediaPosition?: string;
   mediaBg?: string;
+  popupMediaBg?: string;
   imageAlt: string;
 };
 
@@ -21,10 +24,13 @@ type ProjectsCarouselProps = {
   projects: Project[];
 };
 
+const isVideoMedia = (src?: string) => !!src && /\.((mp4)|(webm)|(ogg))$/i.test(src);
+
 export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const itemRefs = useRef<HTMLElement[]>([]);
   const reducedMotionRef = useRef(false);
+  const [activePopupProject, setActivePopupProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
@@ -98,6 +104,26 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
     };
   }, [projects.length]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+    document.body.classList.toggle("project-popup-open", !!activePopupProject);
+    return () => {
+      document.body.classList.remove("project-popup-open");
+    };
+  }, [activePopupProject]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActivePopupProject(null);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <div className="relative -mx-4 px-4">
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-20 bg-gradient-to-b from-[var(--background)] via-[var(--background)]/80 to-transparent" />
@@ -106,20 +132,20 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
 
       <ul
         ref={scrollerRef}
-        className="h-[38rem] overflow-y-auto px-2 pt-20 pb-24 [perspective:1000px] [scrollbar-width:none] [touch-action:pan-y] [overscroll-behavior:contain] [&::-webkit-scrollbar]:hidden"
+        className="h-[38rem] overflow-y-auto px-2 pt-20 pb-24 [perspective:1000px] [scrollbar-width:none] [touch-action:pan-y] [overscroll-behavior:auto] [&::-webkit-scrollbar]:hidden"
       >
         {projects.map((project, index) => (
           <li
             key={`${project.name}-${project.stack}-${index}`}
             data-project-item
-            className="mb-3 origin-center rounded-sm border border-[var(--line)]/20 bg-[var(--background)]/75 p-3 [contain:layout_paint_style] will-change-transform [transform:translateZ(0)]"
+            className="mb-3 origin-center border border-[var(--line)]/20 bg-[var(--background)]/75 p-3 [contain:layout_paint_style] will-change-transform [transform:translateZ(0)]"
           >
             <div className="flex items-start gap-4">
               <div
-                className="group/media relative mt-1 h-[94px] w-[94px] shrink-0 overflow-hidden rounded-sm"
+                className="group/media relative mt-1 h-[94px] w-[94px] shrink-0 overflow-hidden"
                 style={{ backgroundColor: project.mediaBg ?? "transparent" }}
               >
-                {/\.((mp4)|(webm)|(ogg))$/i.test(project.image) ? (
+                {isVideoMedia(project.image) ? (
                   <video
                     src={project.image}
                     aria-label={project.imageAlt}
@@ -148,19 +174,35 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                       }}
                     />
                     {project.hoverImage ? (
-                      <Image
-                        src={project.hoverImage}
-                        alt={project.imageAlt}
-                        width={94}
-                        height={94}
-                        quality={100}
-                        sizes="94px"
-                        className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-200 group-hover/media:opacity-100"
-                        style={{
-                          objectFit: project.mediaFit ?? "cover",
-                          objectPosition: project.mediaPosition ?? "center",
-                        }}
-                      />
+                      isVideoMedia(project.hoverImage) ? (
+                        <video
+                          src={project.hoverImage}
+                          aria-label={project.imageAlt}
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                          className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-200 group-hover/media:opacity-100"
+                          style={{
+                            objectFit: project.mediaFit ?? "cover",
+                            objectPosition: project.mediaPosition ?? "center",
+                          }}
+                        />
+                      ) : (
+                        <Image
+                          src={project.hoverImage}
+                          alt={project.imageAlt}
+                          width={94}
+                          height={94}
+                          quality={100}
+                          sizes="94px"
+                          className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-200 group-hover/media:opacity-100"
+                          style={{
+                            objectFit: project.mediaFit ?? "cover",
+                            objectPosition: project.mediaPosition ?? "center",
+                          }}
+                        />
+                      )
                     ) : null}
                   </>
                 )}
@@ -173,31 +215,97 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                 <p className="mt-3 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
                   {project.details}
                 </p>
-                {project.extraLinks && project.extraLinks.length > 0 ? (
-                  <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
-                    {project.extraLinks.map((item) => (
-                      <a
-                        key={`${project.name}-${item.label}`}
-                        href={item.href}
-                        className="inline-block underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
-                      >
-                        {item.label}
-                      </a>
-                    ))}
-                  </div>
-                ) : (
-                  <a
-                    href={project.link}
-                    className="mt-3 inline-block text-sm lowercase underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
-                  >
-                    view project
-                  </a>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setActivePopupProject(project)}
+                  className="mt-3 inline-block cursor-pointer text-sm underline decoration-1 underline-offset-4 transition hover:text-[var(--muted)]"
+                >
+                  view project
+                </button>
               </div>
             </div>
           </li>
         ))}
       </ul>
+
+      {typeof document !== "undefined" && activePopupProject
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[9999] grid place-items-center overflow-y-auto bg-black/70 p-4"
+              onClick={() => setActivePopupProject(null)}
+            >
+              <div
+                className="relative my-4 aspect-[16/10] w-[min(92vw,980px)] max-h-[82vh] overflow-hidden border border-[var(--line)]/25 shadow-[0_20px_60px_rgba(0,0,0,0.55)]"
+                style={{ backgroundColor: "var(--background)" }}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <div className="grid h-full grid-cols-[2fr_3fr]">
+                  <div
+                    className="relative min-h-[240px]"
+                    style={{
+                      backgroundColor:
+                        activePopupProject.popupMediaBg ??
+                        activePopupProject.mediaBg ??
+                        "var(--background-alt)",
+                    }}
+                  >
+                    {(() => {
+                      const popupMedia =
+                        activePopupProject.popupImage ??
+                        activePopupProject.hoverImage ??
+                        activePopupProject.image;
+
+                      if (isVideoMedia(popupMedia)) {
+                        return (
+                          <video
+                            src={popupMedia}
+                            aria-label={activePopupProject.imageAlt}
+                            muted
+                            loop
+                            autoPlay
+                            playsInline
+                            className="h-full w-full"
+                            style={{
+                              objectFit: activePopupProject.mediaFit ?? "cover",
+                              objectPosition: activePopupProject.mediaPosition ?? "center",
+                            }}
+                          />
+                        );
+                      }
+
+                      return (
+                        <Image
+                          src={popupMedia}
+                          alt={activePopupProject.imageAlt}
+                          fill
+                          className="object-cover"
+                          style={{
+                            objectFit: activePopupProject.mediaFit ?? "cover",
+                            objectPosition: activePopupProject.mediaPosition ?? "center",
+                          }}
+                        />
+                      );
+                    })()}
+                  </div>
+
+                  <div
+                    className="flex h-full flex-col justify-center overflow-y-auto p-6 md:p-8"
+                    style={{ backgroundColor: "var(--background)" }}
+                  >
+                    <h3 className="text-2xl font-bold">{activePopupProject.name}</h3>
+                    <p className="mt-2 font-[Arial] text-xs tracking-[0.04em] text-[var(--muted)]">
+                      {activePopupProject.stack}
+                    </p>
+                    <p className="mt-5 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+                      {activePopupProject.popupDetails ?? activePopupProject.details}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </div>
   );
 }

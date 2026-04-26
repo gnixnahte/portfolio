@@ -35,3 +35,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+body.project-popup-open .site-top-nav {
+  opacity: 0;
+  pointer-events: none;
+}

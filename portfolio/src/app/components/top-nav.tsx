@@ -25,7 +25,7 @@ export default function TopNav() {
   };
 
   return (
-    <nav className="fixed left-1/2 top-5 z-30 -translate-x-1/2">
+    <nav className="site-top-nav fixed left-1/2 top-5 z-30 -translate-x-1/2">
       <div className="flex items-center gap-6 text-sm">
         {items.map((item) => (
           item.id ? (

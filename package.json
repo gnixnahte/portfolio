@@ -1,0 +1,10 @@
+{
+  "name": "personal-portfolio-root",
+  "private": true,
+  "scripts": {
+    "dev": "cd portfolio && npm run dev",
+    "build": "cd portfolio && npm run build",
+    "start": "cd portfolio && npm run start",
+    "lint": "cd portfolio && npm run lint"
+  }
+}
