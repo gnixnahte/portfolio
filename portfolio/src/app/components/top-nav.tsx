@@ -10,7 +10,7 @@ const items: TopNavItem[] = [
   { id: "me", label: "me" },
   { id: "projects", label: "projects" },
   { id: "experience", label: "experience" },
-  { href: "/EthanXing26Resume.pdf", label: "resume" },
+  { href: "/EthanXingResume.pdf", label: "resume" },
 ];
 
 export default function TopNav() {

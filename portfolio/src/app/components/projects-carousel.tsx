@@ -24,7 +24,8 @@ type ProjectsCarouselProps = {
   projects: Project[];
 };
 
-const isVideoMedia = (src?: string) => !!src && /\.((mp4)|(webm)|(ogg))$/i.test(src);
+const isVideoMedia = (src?: string) =>
+  !!src && /\.((mp4)|(webm)|(ogg)|(mov))$/i.test(src);
 
 export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);

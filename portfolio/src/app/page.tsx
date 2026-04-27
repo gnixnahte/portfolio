@@ -89,9 +89,9 @@ export default function Home() {
       link: "#",
       image: "/projects/robot1.jpg",
       hoverImage: "/projects/robot2.jpg",
-      popupImage: "/projects/robot2.jpg",
+      popupImage: "/projects/firefighter-screenrecording.mov",
       popupDetails:
-        "custom built autonomous firefighting robot using CAD, custom PCB design, and sensor fusion from ultrasonic and infrared sensors. add more project context here: architecture, design tradeoffs, build timeline, and outcomes.",
+        "custom built autonomous firefighting robot designed with CAD, powered by custom-made PCBs, and ultrasonic and infrared sensory input. \n\n> used PIC microcontroller as the control core for navigation and determining action based on sensory input\n\t> two motors driven by L293D H-bridge \n> implemented line detection with IR LED + photoresistor pair and wall detection with ultrasonic distance sensors for tracking path and navigation \n\t> IR phototransistor used to detect heat for fire tracking and extinguishing\n> LCD displayed live sensor and state information during debugging tests and maze trials",
       imageAlt: "SumoBot and Firefighter project preview",
     },
     {
@@ -100,10 +100,11 @@ export default function Home() {
       details:
         "autonomous robotic collector built with VEX IQ and C++",
       popupDetails:
-        "autonomous object-collection robot built on vex iq with c++. implemented sensor-driven navigation, intake sequencing, and scoring-state logic for reliable item pickup under time constraints. tuned control loops and mechanical layout to improve consistency between practice and competition runs.",
+        "autonomous object-collection robot built on vex iq with c++. \n\n> implemented sensor-driven navigation, intake sequencing, and scoring-state logic for reliable item pickup under time constraints. \n> iteratively tuned control loops and mechanical layout to improve consistency between practice and competition runs.",
       link: "#",
       image: "/projects/vex1.jpeg",
       hoverImage: "/projects/vex2.png",
+      popupImage: "/projects/vex3.jpeg",
       imageAlt: "VEX Robot project preview",
     },
     {
@@ -112,7 +113,7 @@ export default function Home() {
       details:
         "browser extension built to identify ai-generated media, helping artists and consumers alike identify ai-generated media",
       popupDetails:
-        "browser extension and backend pipeline for flagging likely ai-generated images. combined lightweight client-side analysis with server-side computer vision models and moderation APIs, then surfaced confidence signals directly in-page to help users evaluate media authenticity quickly.",
+        "browser extension built for chrome allowing users to detect and differentiate ai-generated media\n\n> built with JavaScript and Tailwind on the frontend \n\t> visual input enabled with OpenCV \n> CNN built with PyTorch trained on 10,000+ images to detect between real and ai-generated media\n\t> leverages SightEngineAPI to improve recognition of edge cases (ie. photorealistic ai-images)",
       link: "https://github.com/forkiron/ispy",
       image: "/projects/ispy.webp",
       imageAlt: "iSpy project preview",
@@ -123,7 +124,7 @@ export default function Home() {
       details:
         "NLP-based scam-detection tool for people looking for housing in Canada, found 3,000+ scam listings across Ontario alone",
       popupDetails:
-        "housing scam detection tool for renters in canada that combines nlp heuristics, fuzzy matching, and listing-pattern analysis. processed large listing corpora to identify suspicious posts and duplicate scam networks, helping surface thousands of likely fraudulent listings across ontario.",
+        "housing scam detection tool for renters in canada that combines NLP heuristics, fuzzy matching, and listing-pattern analysis to provide user feedback. \n\n> built with React and JavaScript on the frontend \n\t> openCV processes images of listings attached by the user\n> photos are scraped using openCV and given to a custom trained pipeline \n> NLP-pipeline revolving around OCR being able to scrape keywords of the image and NER finding information for listings in similar regions based off keywords\n\t> leverages GeminiAPI to improve feedback for locations with minimal information",
       link: "https://github.com/forkiron/newden",
       image: "/projects/newden.webp",
       mediaFit: "contain",
