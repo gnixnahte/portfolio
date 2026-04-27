@@ -42,6 +42,8 @@ export default function Home() {
       stack: "next.js / typescript / react / tailwind / python / tensorflow / keras / gemini api",
       details:
         "ml-powered, full-stack accessibility tool for people with parkinson's disease and hand tremors, allowing users to transcribe ineligible handwriting into eligible text",
+      popupDetails:
+        "full-stack accessibility app for handwriting transcription for users with hand tremors and mobility limitations.\n\n> built with Next.js, TypeScript and React on the frontend \n\t> visual input enabled with OpenCV \n> transcription powered by custom CNN-RNN-CTC inference pipeline trained on set of 7,000+ handwritten samples\n\t> leverages GeminiAPI to improve recognition on edge cases \n> lightweight backend with Supabase to allow for logging and saving past writing excerpts",
       link: "https://github.com/forkiron/scrible",
       image: "/projects/scrible1.png",
       hoverImage: "/projects/scrible2.png",
@@ -55,6 +57,8 @@ export default function Home() {
       stack: "next.js / typescript / react / google cloud platform / tone.js / supabase",
       details:
         "beginner-friendly, browser-based DAW music maker with real-time audio scheduling and an interactive piano roll-based editor",
+      popupDetails:
+        "full-stack, web-based music production tool for beginners and drafting quick melodies with audio recording capabilities.\n\t> 35+ effects, 7+ instruments, unlimited creative potential, with note-level control over sfx + instrumentation\n\n> built with Next.js, TypeScript and React on the frontend \n\t> audio engine powered by Tone.js and audio scheduling enabled through piano-roll interface with Web Audio API\n> used Supabase (PostgreSQL) to implement save/load functionality, user authentication, and secure data access with RLS policies\n\t> projects stored in JSON, allowing for easy .mp3 export",
       link: "https://github.com/gnixnahte/melodica",
       image: "/projects/melodica1.png",
       hoverImage: "/projects/melodica2-new.png",
@@ -68,10 +72,12 @@ export default function Home() {
       stack: "next.js / typescript / react / node.js / supabase / backboard.io",
       details:
         "standardized grading system for canadian high schools, reducing the effects of grade inflation with data taken from 2,000+ schools in the Fraser Institute",
+      popupDetails:
+        "data-driven grade normalization platform for canadian high schools using datasets from over 2,000+ high schools across Canada. \n\n> built with Next.js, TypeScript and React on the frontend \n\t> 3D mapping powered by Mapbox/MapLibre, deck.gl, and React Three Fiber for globe + heat-layer visualization \n> designed an analyzer pipeline with subject-specific AI routing to estimate test rigor and generate school-aware adjustment factors\n\t> integrated Gemini + Backboard SDK for tool orchestration and agentic chatbot \n> implemented Supabase-backed persistence for adjustment submissions, secure API routes, and migration-driven data management",
       link: "https://github.com/forkiron/axiom",
       image: "/projects/axiom1.png",
       hoverImage: "/projects/axiom2.png",
-      popupImage: "/projects/axiom3.png",
+      popupImage: "/projects/axiom.mp4",
       mediaPosition: "center 56%",
       imageAlt: "AXIOM project preview",
     },
@@ -93,6 +99,8 @@ export default function Home() {
       stack: "c++ / vex iq",
       details:
         "autonomous robotic collector built with VEX IQ and C++",
+      popupDetails:
+        "autonomous object-collection robot built on vex iq with c++. implemented sensor-driven navigation, intake sequencing, and scoring-state logic for reliable item pickup under time constraints. tuned control loops and mechanical layout to improve consistency between practice and competition runs.",
       link: "#",
       image: "/projects/vex1.jpeg",
       hoverImage: "/projects/vex2.png",
@@ -103,6 +111,8 @@ export default function Home() {
       stack: "javascript / python / pytorch / flask / openCV / sightengine API",
       details:
         "browser extension built to identify ai-generated media, helping artists and consumers alike identify ai-generated media",
+      popupDetails:
+        "browser extension and backend pipeline for flagging likely ai-generated images. combined lightweight client-side analysis with server-side computer vision models and moderation APIs, then surfaced confidence signals directly in-page to help users evaluate media authenticity quickly.",
       link: "https://github.com/forkiron/ispy",
       image: "/projects/ispy.webp",
       imageAlt: "iSpy project preview",
@@ -112,6 +122,8 @@ export default function Home() {
       stack: "javascript / python / openCV / spaCy / fuzzywuzzy",
       details:
         "NLP-based scam-detection tool for people looking for housing in Canada, found 3,000+ scam listings across Ontario alone",
+      popupDetails:
+        "housing scam detection tool for renters in canada that combines nlp heuristics, fuzzy matching, and listing-pattern analysis. processed large listing corpora to identify suspicious posts and duplicate scam networks, helping surface thousands of likely fraudulent listings across ontario.",
       link: "https://github.com/forkiron/newden",
       image: "/projects/newden.webp",
       mediaFit: "contain",

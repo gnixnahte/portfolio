@@ -296,9 +296,43 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     <p className="mt-2 font-[Arial] text-xs tracking-[0.04em] text-[var(--muted)]">
                       {activePopupProject.stack}
                     </p>
-                    <p className="mt-5 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
-                      {activePopupProject.popupDetails ?? activePopupProject.details}
-                    </p>
+                    <div className="mt-5 space-y-1 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+                      {(activePopupProject.popupDetails ?? activePopupProject.details)
+                        .split("\n")
+                        .map((line, index) => {
+                          const markerMatch = line.match(/^(\s*)>\s?(.*)$/);
+
+                          if (markerMatch) {
+                            const leadingWhitespace = markerMatch[1] ?? "";
+                            const content = markerMatch[2] ?? "";
+                            const tabCount = (leadingWhitespace.match(/\t/g) ?? []).length;
+                            const spaceCount = (leadingWhitespace.match(/ /g) ?? []).length;
+                            const indentCh = tabCount * 4 + spaceCount;
+
+                            return (
+                              <div
+                                key={`${activePopupProject.name}-popup-line-${index}`}
+                                className="grid min-w-0 grid-cols-[1ch_1fr] gap-x-2"
+                                style={{ marginLeft: `${indentCh}ch` }}
+                              >
+                                <span aria-hidden="true">{">"}</span>
+                                <span className="min-w-0 whitespace-pre-wrap">
+                                  {content || "\u00A0"}
+                                </span>
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <div
+                              key={`${activePopupProject.name}-popup-line-${index}`}
+                              className="whitespace-pre-wrap"
+                            >
+                              {line || "\u00A0"}
+                            </div>
+                          );
+                        })}
+                    </div>
                   </div>
                 </div>
               </div>
