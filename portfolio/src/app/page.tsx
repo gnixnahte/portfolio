@@ -9,6 +9,14 @@ export default function Home() {
   const experienceTimeline = [
     {
       period: "Sep 2025 -",
+      title: "software engineer",
+      organization: "@ GrazeAI",
+      logo: "/logos/grazeai_logo.jpeg",
+      logoAlt: "GrazeAI logo",
+      details: "incoming s26",
+    },
+    {
+      period: "Sep 2023 - Jun 2024",
       title: "robotics software researcher",
       organization: "@ robohub x uwaterloo",
       logo: "/logos/robohub_logo.png",
@@ -17,22 +25,13 @@ export default function Home() {
         "building control software for a 6-dof KINOVA robotic arm with millimeter accuracy for 3d bioprinting purposes",
     },
     {
-      period: "Sep 2023 - Jun 2024",
+      period: "Summer 2023",
       title: "executive director",
-      organization: "@ canadian youth stem conference",
+      organization: "@ Canadian Youth Stem Conference",
       logo: "/logos/cysc_logo.jpg",
       logoAlt: "Canadian Youth STEM Conference logo",
       details:
         "created the centerpiece 'innovation challenge' and oversaw 300+ attendees for day-of operations",
-    },
-    {
-      period: "Summer 2023",
-      title: "STEM leader",
-      organization: "@ launch waterloo",
-      logo: "/logos/launch_logo.png",
-      logoAlt: "Organization logo",
-      details:
-        "oversaw weekly sessions, leading activities, interacting with students and working with sphero robotic cars",
     },
   ];
 
