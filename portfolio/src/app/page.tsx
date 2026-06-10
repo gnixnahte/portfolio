@@ -13,7 +13,7 @@ export default function Home() {
       organization: "@ GrazeAI",
       logo: "/logos/grazeai_logo.jpeg",
       logoAlt: "GrazeAI logo",
-      details: "incoming s26",
+      details: "workflow automation",
     },
     {
       period: "Sep 2025 -",
