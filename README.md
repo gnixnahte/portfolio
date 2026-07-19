@@ -1,4 +1,4 @@
-# Ethan Xing Portfolio
+# my \#website
 
 Personal portfolio site built with Next.js (App Router), React, TypeScript, and Tailwind CSS.
 
