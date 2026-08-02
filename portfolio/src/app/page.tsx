@@ -13,7 +13,7 @@ export default function Home() {
       organization: "@ GrazeAI",
       logo: "/logos/grazeai_logo.jpeg",
       logoAlt: "GrazeAI logo",
-      details: "workflow automation",
+      details: "ai and llm integration, workflow automation + CRM management",
     },
     {
       period: "Sep 2025 -",
@@ -149,11 +149,11 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            currently studying mechatronics @ uwaterloo
+            studying mechatronics @ uwaterloo
           </p>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            i work with end-to-end software + hardware systems and love building, learning and iterating fast.
+            i like ai systems, machine learning pipelines + perception systems.
           </p>
 
           <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
