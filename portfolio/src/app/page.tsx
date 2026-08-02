@@ -153,7 +153,7 @@ export default function Home() {
           </p>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            i like ai systems, machine learning pipelines + perception systems.
+            i enjoy building ai, ml & perception systems.
           </p>
 
           <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
