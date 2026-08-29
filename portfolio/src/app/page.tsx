@@ -8,7 +8,7 @@ export default function Home() {
 
   const experienceTimeline = [
     {
-      period: "May 2026 -",
+      period: "May 2026 - Aug 2026",
       title: "machine learning engineer",
       organization: "@ GrazeAI",
       logo: "/logos/grazeai_logo.jpeg",
@@ -16,13 +16,13 @@ export default function Home() {
       details: "ai and llm integration, workflow automation + CRM management",
     },
     {
-      period: "Sep 2025 -",
+      period: "Sep 2025 - Aug 2026",
       title: "robotics software researcher",
       organization: "@ robohub x uwaterloo",
       logo: "/logos/robohub_logo.png",
       logoAlt: "RoboHub x UWaterloo logo",
       details:
-        "building control software for a 6-dof KINOVA robotic arm with millimeter accuracy for 3d bioprinting purposes",
+        "built control software for a 6-dof KINOVA robotic arm with millimeter accuracy for 3d bioprinting purposes",
     },
     {
       period: "Sep 2023 - Jun 2024",
