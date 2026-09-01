@@ -9,7 +9,7 @@ export default function Home() {
   const experienceTimeline = [
     {
       period: "May 2026 - Aug 2026",
-      title: "machine learning engineer",
+      title: "ai software engineer",
       organization: "@ GrazeAI",
       logo: "/logos/grazeai_logo.jpeg",
       logoAlt: "GrazeAI logo",
