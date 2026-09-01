@@ -13,7 +13,7 @@ export default function Home() {
       organization: "@ GrazeAI",
       logo: "/logos/grazeai_logo.jpeg",
       logoAlt: "GrazeAI logo",
-      details: "ai and llm integration, workflow automation + CRM management",
+      details: "ai and llm integration, workflow automation + CRM management for data aggregation",
     },
     {
       period: "Sep 2025 - Aug 2026",
@@ -22,7 +22,7 @@ export default function Home() {
       logo: "/logos/robohub_logo.png",
       logoAlt: "RoboHub x UWaterloo logo",
       details:
-        "built control software for a 6-dof KINOVA robotic arm with millimeter accuracy for 3d bioprinting purposes",
+        "built control software + simulation pipelines for a 6-dof KINOVA Link6 arm with millimeter accuracy for 3d bioprinting purposes",
     },
     {
       period: "Sep 2023 - Jun 2024",
@@ -153,7 +153,7 @@ export default function Home() {
           </p>
 
           <p className="mt-6 max-w-xl text-base lowercase leading-relaxed text-[var(--muted)] sm:text-lg">
-            i enjoy building ai, ml & perception systems.
+            i enjoy building smart systems that matter.
           </p>
 
           <p className="mt-10 text-xs tracking-[0.08em] text-[var(--muted)]">
