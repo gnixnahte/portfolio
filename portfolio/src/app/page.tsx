@@ -207,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="relative z-10 scroll-mt-20 px-6 py-20">
+      <section id="experience" className="relative z-10 scroll-mt-20 px-6 pb-20 pt-12">
         <div className="mx-auto w-full max-w-3xl">
           <div className="mb-12 max-w-2xl">
             <h2 className="mt-3 text-3xl font-black lowercase tracking-[-0.03em] sm:text-5xl">
@@ -248,7 +248,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="relative z-10 scroll-mt-20 px-6 pb-24 pt-2">
+      <section id="projects" className="relative z-10 scroll-mt-20 px-6 pb-24 pt-12">
         <div className="mx-auto w-full max-w-3xl">
           <div className="mb-10 max-w-2xl">
             <h2 className="text-3xl font-black lowercase tracking-[-0.03em] sm:text-5xl">
