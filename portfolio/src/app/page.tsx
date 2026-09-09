@@ -68,7 +68,7 @@ export default function Home() {
     },
     {
       name: "AXIOM",
-      stack: "next.js / typescript / react / node.js / supabase / backboard.io",
+      stack: "next.js / typescript / react / three.js / node.js / backboard.io",
       details:
         "standardized grading system for canadian high schools, reducing the effects of grade inflation with data taken from 2,000+ schools in the Fraser Institute",
       popupDetails:
