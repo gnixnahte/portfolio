@@ -248,9 +248,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="relative z-10 scroll-mt-20 px-6 pb-24 pt-2">
+      <section id="projects" className="relative z-10 scroll-mt-20 px-6 pb-24 pt-24">
         <div className="mx-auto w-full max-w-3xl">
-          <div className="mb-10 max-w-2xl">
+          <div className="mb-5 max-w-2xl">
             <h2 className="text-3xl font-black lowercase tracking-[-0.03em] sm:text-5xl">
               projects
             </h2>
