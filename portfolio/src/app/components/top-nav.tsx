@@ -8,8 +8,8 @@ type TopNavItem = {
 
 const items: TopNavItem[] = [
   { id: "me", label: "me" },
-  { id: "projects", label: "projects" },
   { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
   { href: "/EthanXingResume.pdf", label: "resume" },
 ];
 
