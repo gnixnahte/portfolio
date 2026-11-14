@@ -1,25 +1,29 @@
-# Portfolio drafts
+# Ethan Xing — personal portfolio drafts
 
-Three standalone, unpublished concepts. Open `index.html` directly in a browser; no installation or build is needed. Each concept has responsive project, about, and experience sections and links to existing GitHub projects.
+Open `index.html` in Safari or Chrome to browse all eleven standalone drafts. No build or installation is needed.
 
-- `01-editorial.html`: warm editorial typography and sage project cards.
-- `02-terminal.html`: dark monospace layout with lime accents.
-- `03-studio.html`: lavender studio layout with rounded cards.
+These files live only in the root `drafts/` directory, outside the Next.js app (`portfolio/`). They do not add routes or public assets to ethanxing.com. The commits are included on `main` for repository visibility and contribution eligibility. Deployment skip markers on the final pushed commit prevent this Netlify push from deploying; later ordinary app pushes can still deploy normally. No app or hosting configuration was changed.
 
-These files sit outside `portfolio/` and are not application routes or public assets. Keep this branch unmerged to preserve the live website. No hosting settings were changed.
+## Concepts
 
-Each concept has two commits: initial layout, then experience content and accessibility polish. Author and committer timestamps were explicitly set to November 13, 2026, America/Toronto, at the owner's request; the drafts were actually created November 14, 2026. Commit messages include CI and Netlify skip markers.
+| Draft | Direction | Reference |
+| --- | --- | --- |
+| 01 Editorial | Serif, personal project list | [George Shao](https://shao.zip/) |
+| 02 Terminal | Dark green, compact developer page | [UW CS Webring](https://cs.uwatering.com/) |
+| 03 Studio | Lavender personal page | [Lily Song](https://www.sillly.ca/) |
+| 04 Quiet | Minimal single column | [George Shao](https://shao.zip/) |
+| 05 A Small Note | Personal letter | [Freeman Jiang](https://freemanjiang.com/) |
+| 06 Index | Sparse project directory | [UW CS Webring](https://cs.uwatering.com/) |
+| 07 Playground | Colorful project shelf | [Lily Song](https://www.sillly.ca/) |
+| 08 Signal | Dark personal page with theme toggle | [Ruby Lu](https://www.rubylu.dev/) |
+| 09 Profile | Compact bio, projects, and experience | [George Shao](https://shao.zip/) |
+| 10 Sidebar | Personal navigation beside project list | [Kevin Huang](https://kevinh.cv/) |
+| 11 Notebook | Paper, serif text, margin rule | [Freeman Jiang](https://freemanjiang.com/) |
 
-Existing untracked `portfolio/src/app/concepts/` and `preview-three/` files are unrelated and were left untouched.
+Each page includes a clickable reference and explains the structural inspiration. Visual treatments are original interpretations, not screenshot recreations; no reference assets or code were copied. Existing personal facts and project descriptions come from this repository.
 
-## Additional webring-inspired drafts
+Every new draft has two commits. Author and committer timestamps were explicitly set to November 13, 2026, America/Toronto, at the owner’s request; work was actually created November 14. Commit messages include `[skip ci] [skip netlify]`.
 
-Five additional drafts (04–08), each with two commits and an on-page citation. Open `index.html` to compare all eight. Reference structures were inspected; visual treatments are original interpretations, not screenshot recreations.
+Validation covers local file links, anchors, citations, theme script syntax, and an unchanged production tree. Browser rendering has not been verified.
 
-- `04-quiet.html`: Minimal / single column. Reference: [George Shao](https://shao.zip/).
-- `05-note.html`: Minimal / personal letter. Reference: [Freeman Jiang](https://freemanjiang.com/).
-- `06-index.html`: Minimal / directory. Reference: [UW CS Webring](https://cs.uwatering.com/).
-- `07-playground.html`: Expressive / project playground. Reference: [Lily Song](https://www.sillly.ca/).
-- `08-signal.html`: Expressive / graphic studio. Reference: [Ruby Lu](https://www.rubylu.dev/).
-
-These additions follow the requested November 13 author/committer dates; actually created November 14. A separate gallery/documentation commit connects the drafts. No production app files changed. Validation covers local files and fragment links; browser rendering has not been verified.
+Existing untracked `portfolio/src/app/concepts/` and `portfolio/src/app/preview-three/` were left untouched and are not included in the commits.
